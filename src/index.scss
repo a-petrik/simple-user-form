@@ -1,0 +1,237 @@
+$mainTextColor: #1A1A1C;
+$secondTextColor: #222;
+$mainColor: #0017C1;
+$warningColor: #EC0000;
+$focusColor: #CD820A;
+$disabledColor: #949497;
+
+$blockMarginTop: 48px;
+$fieldMarginTop: 16px;
+$elementMarginTop: 8px;
+
+$fontSizeTitle: 32px;
+$fontSizeSmall: 12px;
+$fontSizeStandart: 14px;
+$fontSizeBig: 16px;
+
+$letterSpacingSmall: 0.02em;
+$letterSpacingMedium: 0.04em;
+
+$fieldsetItemHeight: 43px;
+$inputAndButtonHeight: 56px;
+
+$borderRadius: 8px;
+
+:root {
+  font-family: 'Noto Sans JP', 'Yu Gothic', 'Meiryo', 'Helvetica Neue', Arial, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: $fontSizeStandart;
+  font-style: normal;
+  color-scheme: light;
+  color: $mainTextColor;
+  height: 100%;
+  background: #F5F5F5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #fff;
+}
+
+#title {
+  font-size: $fontSizeTitle;
+  font-weight: 500;
+  line-height: 48px;
+  text-align: left;
+  color: $secondTextColor;
+  letter-spacing: $letterSpacingMedium;
+}
+
+.required {
+  font-size: $fontSizeSmall;
+  line-height: 20.4px;
+  letter-spacing: $letterSpacingSmall;
+  text-align: left;
+  color: $warningColor;
+}
+
+.form {
+  &__section {
+    margin-top: $blockMarginTop;
+
+    &__title {
+      font-size: $fontSizeBig;
+      font-weight: 500;
+      line-height: 48px;
+      text-align: left;
+      color: $secondTextColor;
+      letter-spacing: $letterSpacingMedium;
+    }
+
+    &__field {
+      margin-top: $fieldMarginTop;
+
+      &__label {
+        display: block;
+        font-weight: 500;
+        line-height: 21px;
+        text-align: left;
+        letter-spacing: $letterSpacingMedium;
+      }
+
+      &__textInput {
+        width: 100%;
+        font-size: $fontSizeBig;
+        height: $inputAndButtonHeight;
+        padding: 12px 16px;
+        margin-top: $elementMarginTop;
+        border: 1px solid $mainTextColor;
+        border-radius: $borderRadius;
+        outline: none;
+        line-height: 27.2px;
+        letter-spacing: $letterSpacingMedium;
+        text-align: left;
+      
+        &--small {
+          width: 67px;
+        }
+      
+        &--error {
+          border: 2px solid $warningColor;
+        }
+      
+        &:focus {
+          border: 2px solid $focusColor;
+        }
+      }
+
+      &__errorText {
+        font-size: $fontSizeSmall;
+        line-height: 20.4px;
+        letter-spacing: $letterSpacingSmall;
+        text-align: left;
+        color: $warningColor;
+        margin-top: $elementMarginTop;
+      }
+    }
+
+    &__fieldset {
+      margin-top: $fieldMarginTop;
+      border: 0;
+      padding-block: 0;
+      padding-inline: 0;
+      margin-inline: 0;
+
+      &__title {
+        display: block;
+        font-weight: 500;
+        line-height: 24.5px;
+        text-align: left;
+        letter-spacing: $letterSpacingMedium;  
+      }
+
+      &__list {
+        margin-top: $elementMarginTop;
+        list-style: none;
+
+        &__item {
+          height: $fieldsetItemHeight;
+          position: relative;
+
+          &__label {
+            width: 100%;
+            display: block;
+            padding-left: 40px;
+            height: $fieldsetItemHeight;
+            line-height: $fieldsetItemHeight;
+            font-size: $fontSizeBig;
+            letter-spacing: $letterSpacingMedium;
+            text-align: left;
+            cursor: pointer;
+          }
+
+          &__radioInput {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 19px;
+            height: 19px;
+            border-radius: 50%;
+            border: 2px solid $mainTextColor;
+            background-color: #fff;
+            position: absolute;
+            top: 12px;
+            left: 2px;
+            cursor: pointer;
+          
+            &:checked {
+              border-color: $mainColor;
+          
+              &::after {
+                content: "";
+                position: absolute;
+                top: 25%;
+                left: 25%;
+                width: 50%;
+                height: 50%;
+                border-radius: 50%;
+                background-color: $mainColor;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__buttons {
+    margin-top: $blockMarginTop;
+
+    &__button {
+      all: unset;
+      border: none;
+      background: transparent;
+      font: inherit;
+      cursor: pointer;
+      text-align: center;
+      display: block;
+      outline: none;
+      height: $inputAndButtonHeight;
+      width: 100%;
+      line-height: $inputAndButtonHeight;
+      border-radius: $borderRadius;
+      font-size: $fontSizeBig;
+      font-weight: 700;
+      letter-spacing: $letterSpacingMedium;
+    
+      &:nth-child(n+2) {
+        margin-top: $elementMarginTop;
+      }
+    
+      &--primary {
+        background: $mainColor;
+        color: #fff;
+    
+        &:disabled {
+          background: $disabledColor;
+          cursor: not-allowed;
+          color: rgba(255, 255, 255, 0.34);
+        }
+      }
+    
+      &--secondary {
+        border: 1px solid $mainColor;
+        color: $mainColor;
+      }
+    }
+  }
+}
